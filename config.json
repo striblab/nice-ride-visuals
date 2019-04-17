@@ -1,0 +1,57 @@
+{
+  "about this file": "This document defines configuration for this project that is not content or copy.",
+
+  "projectIdentifier": "nice-ride-visuals",
+
+  "data": {
+    "content": "./content.json",
+    "pkg": "./package.json"
+  },
+
+  "cms": {
+    "defaultArticleContentTemplateRewriteClass": "article-lcd-body-content",
+    "pages": [
+      
+      {
+        "id": "index",
+        "articleId": "NEEDS-ARTICLE-ID",
+        "lcd": "NEEDS-LCD-ID",
+        "default": true
+      }
+      
+    ]
+  },
+
+
+  "styles": {
+    "globals": [
+    ]
+  },
+  "js": {
+    "globals": [
+      "https://cdn.polyfill.io/v2/polyfill.min.js",
+      "https://static.startribune.com/assets/libs/pym.js/1.3.2/pym.v1.min.js"
+    ]
+  },
+  "publishToken": "c5a41aafcce085a691a6e17ad7304391",
+  "publish": {
+    "default": {
+      "bucket": "static.startribune.com",
+      "path": "news/projects-staging/all/nice-ride-visuals",
+      "url": "http://static.startribune.com/news/projects-staging/all/nice-ride-visuals/",
+      "cacheSeconds": 30
+    },
+    "testing": {
+      "bucket": "stribtest-bucket",
+      "path": "news/projects/nice-ride-visuals",
+      "url": "https://s3.amazonaws.com/stribtest-bucket/news/projects/nice-ride-visuals/",
+      "cacheSeconds": 30
+    },
+    "production": {
+      "bucket": "static.startribune.com",
+      "path": "news/projects/all/nice-ride-visuals",
+      "url": "http://static.startribune.com/news/projects/all/nice-ride-visuals/",
+      "cacheSeconds": 600
+    }
+  }
+}
