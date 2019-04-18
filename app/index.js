@@ -17,8 +17,6 @@ utils.documentReady(() => {
   utils.environmentNoting();
 });
 
-
-
 /**
  * Adding dependencies
  * ---------------------------------
@@ -28,7 +26,6 @@ utils.documentReady(() => {
  * Or import libraries installed with npm like this:
  * import module from 'module';
  */
-
 
 /**
  * Adding Svelte templates in the client
@@ -64,8 +61,6 @@ utils.documentReady(() => {
  * });
  */
 
-
-
 // Common code to get svelte template loaded on the client and hack-ishly
 // handle sharing
 //
@@ -85,4 +80,3 @@ utils.documentReady(() => {
 //     }
 //   });
 // });
-
