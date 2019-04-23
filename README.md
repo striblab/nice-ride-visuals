@@ -2,20 +2,28 @@
 
 Analysis and visualization of Nice Ride
 
-
-
 ## Data
 
-_<Describe data and where it comes from.>_
-
-Utilizes [Air Supply](https://zzolo.org/air-supply/) to pull in data that is available in the templating.
+- [Nice Ride system data](https://www.niceridemn.com/system-data)
 
 ## Data analysis
 
-_<Describe data and where it comes from.>_
+- Load data into PostGIS database
 
-See [docs/data-analysis.md](./docs/data-analysis.md).
+  - Create Postgres database, and make sure to run `CREATE EXTENSION postgis;`
+  - Add `TABLES_DB_URI` environment variable, optionally in a `.env` file.
+  - Load 2018 data
 
+    ```bash
+    curl -L --silent "https://s3.amazonaws.com/niceride-data/201804-niceride-tripdata.csv.zip" | funzip | ./node_modules/.bin/tables -c data/lib/nice-ride.tables.js && \
+    curl -L --silent "https://s3.amazonaws.com/niceride-data/201805-niceride-tripdata.csv.zip" | funzip | ./node_modules/.bin/tables -c data/lib/nice-ride.tables.js && \
+    curl -L --silent "https://s3.amazonaws.com/niceride-data/201806-niceride-tripdata.csv.zip" | funzip | ./node_modules/.bin/tables -c data/lib/nice-ride.tables.js && \
+    curl -L --silent "https://s3.amazonaws.com/niceride-data/201807-niceride-tripdata.csv.zip" | funzip | ./node_modules/.bin/tables -c data/lib/nice-ride.tables.js && \
+    curl -L --silent "https://s3.amazonaws.com/niceride-data/201808-niceride-tripdata.csv.zip" | funzip | ./node_modules/.bin/tables -c data/lib/nice-ride.tables.js && \
+    curl -L --silent "https://s3.amazonaws.com/niceride-data/201809-niceride-tripdata.csv.zip" | funzip | ./node_modules/.bin/tables -c data/lib/nice-ride.tables.js && \
+    curl -L --silent "https://s3.amazonaws.com/niceride-data/201810-niceride-tripdata.csv.zip" | funzip | ./node_modules/.bin/tables -c data/lib/nice-ride.tables.js && \
+    curl -L --silent "https://s3.amazonaws.com/niceride-data/201811-niceride-tripdata.csv.zip" | funzip | ./node_modules/.bin/tables -c data/lib/nice-ride.tables.js
+    ```
 
 ## Publishing
 
