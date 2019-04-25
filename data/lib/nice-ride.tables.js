@@ -10,9 +10,6 @@ require('dotenv').load();
 // All times should be
 moment.tz.setDefault('America/Chicago');
 
-// Counter
-let counter = 0;
-
 module.exports = {
   db: process.env.TABLES_DB_URI,
   transformer: (d, models, options) => {
@@ -94,6 +91,13 @@ module.exports = {
         `UPDATE ${models.trip.tableName} SET
         start_point = ST_SetSRID(ST_MakePoint(start_longitude, start_latitude), 4326),
         end_point = ST_SetSRID(ST_MakePoint(end_longitude, end_latitude), 4326)`
+      );
+
+      await db.query(
+        'CREATE INDEX IF NOT EXISTS trips_start_point_geo ON trips USING GIST(start_point)'
+      );
+      await db.query(
+        'CREATE INDEX IF NOT EXISTS trips_end_point_geo ON trips USING GIST(end_point)'
       );
     }
   },
